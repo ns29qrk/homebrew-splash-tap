@@ -1,12 +1,3 @@
-class SplashMacOSRequirement < Requirement
-  fatal true
-  satisfy(build_env: false) { OS.mac? && MacOS.full_version >= "26.4" }
-
-  def message
-    "Splash requires macOS 26.4 or newer."
-  end
-end
-
 class Splash < Formula
   desc "Local inference engine for Apple silicon, built around the model"
   homepage "https://github.com/incoai/splash"
@@ -21,7 +12,6 @@ class Splash < Formula
 
   depends_on arch: :arm64
   depends_on macos: :tahoe
-  depends_on SplashMacOSRequirement
 
   def install
     libexec.install Dir["*"]
