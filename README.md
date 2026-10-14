@@ -1,21 +1,42 @@
-# Inco AI Homebrew tap
+# Splash Homebrew Tap (mise-compatible fork)
 
-Formulae for Inco AI's open-source tools.
+Forked from [incoai/homebrew-tap](https://github.com/incoai/homebrew-tap) to support installation via [mise](https://mise.jdx.dev).
 
-## Install
+## Install via mise (Recommended)
+
+### 1. Add the Tap
+```sh
+mise bootstrap packages brew tap ns29qrk/splash-tap https://github.com/ns29qrk/homebrew-splash-tap.git
+```
+
+### 2. Install Splash
+```sh
+mise bootstrap packages use -g brew:ns29qrk/splash-tap/splash
+```
+
+### Using in `mise.toml`
+```toml
+[bootstrap.brew.taps]
+"ns29qrk/splash-tap" = "https://github.com/ns29qrk/homebrew-splash-tap.git"
+
+[bootstrap.packages]
+"brew:ns29qrk/splash-tap/splash" = "latest"
+```
+
+Apply the configuration:
+```sh
+mise bootstrap packages apply --manager brew
+```
+
+---
+
+## Install via Homebrew
 
 ```sh
-brew install incoai/tap/<formula>
+brew install ns29qrk/splash-tap/splash
 ```
 
-Or `brew tap incoai/tap` once, then `brew install <formula>`. In a `Brewfile`:
-
-```ruby
-tap "incoai/tap"
-brew "<formula>"
-```
-
-Upgrade with `brew upgrade <formula>` and remove with `brew uninstall <formula>`.
+---
 
 ## Formulae
 
@@ -23,5 +44,4 @@ Upgrade with `brew upgrade <formula>` and remove with `brew uninstall <formula>`
 | --- | --- | --- |
 | `splash` | Local inference engine for Apple silicon, built around the model. [Repository](https://github.com/incoai/splash) · [Launch post](https://inco.ai/blog/splash/) | M3 or newer Mac, macOS 26.4 or later, 36 GB of unified memory |
 
-Report problems with a tool in its own repository. This tap only carries the
-formulae.
+Report problems with `splash` in its [official repository](https://github.com/incoai/splash).
